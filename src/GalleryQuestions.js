@@ -85,7 +85,7 @@ class GalleryQuestions extends Component{
                     id="e"
                     width={722}
                     height={305}
-                    xlinkHref="C:%5CUsers%5Ctabas%5CDesktop%5CCSE373%5Ccaligraphy-clipart-transparent-3.png"
+                    xlinkHref="C:/Users/tabas/Desktop/CSE373/caligraphy-clipart-transparent-3.png"
                 />
             </defs>
             <g id="c" className="a">
@@ -95,7 +95,7 @@ class GalleryQuestions extends Component{
                         width={1920}
                         height={1200}
                         transform="translate(-716)"
-                        xlinkHref="C:%5CUsers%5Ctabas%5CDesktop%5CCSE373%5C6809725-simple-vintage-backgrounds.jpg"
+                        xlinkHref="https://s3.amazonaws.com/appforest_uf/f1556501170357x344824048630522050/6809725-simple-vintage-backgrounds.jpg"
                     />
                 </g>
                 <text className="b" transform="translate(959 88)">
