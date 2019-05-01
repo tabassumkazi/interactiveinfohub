@@ -101,6 +101,12 @@ const WebComponent = () => (
           {"Gallery"}
         </tspan>
       </text>
+      <image
+        width={138}
+        height={138}
+        transform="translate(59 34)"
+        xlinkHref="C:%5CUsers%5Ctabas%5CDesktop%5CCSE373%5CDownload-Back-Logo-Png-Image-58922-For-Designing-Projects.png"
+      />
       <text className="d" transform="translate(1340 635)">
         <tspan x={-230.869} y={0}>
           {"Streets of new york"}
