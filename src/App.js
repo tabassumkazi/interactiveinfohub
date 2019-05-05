@@ -8,6 +8,7 @@ import GalleryOne from "./GalleryOne"
 import GalleryTwo from "./GalleryTwo"
 import GeneralAnswer from "./GeneralAnswer"
 import GalleryAnswer from "./GalleryAnswer"
+import AttractLoop from "./AttractLoop"
 
 import './App.css';
 
@@ -33,6 +34,7 @@ class App extends Component{
                         <Route path="/galleryTwo" component={GalleryTwo} />
                         <Route path="/generalAnswer" component={GeneralAnswer} />
                         <Route path="/galleryAnswer" component={GalleryAnswer} />
+                        <Route path="/video" component={AttractLoop}/>
                     </Switch>
 
                 </Router>

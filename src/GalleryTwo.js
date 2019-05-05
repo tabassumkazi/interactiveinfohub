@@ -8,6 +8,7 @@
 import React from "react";
 import { Component } from 'react';
 import {Redirect} from 'react-router-dom';
+import IdleTimer from 'react-idle-timer'
 
 
 // xlinkHref="https://s3.amazonaws.com/appforest_uf/f1556501170357x344824048630522050/6809725-simple-vintage-backgrounds.jpg"
@@ -19,9 +20,12 @@ class GalleryTwo extends Component{
     constructor(props){
         super(props);
 
+        this.idleTimer = null;
+        this.onIdle = this.onIdle.bind(this);
         this.handleBack = this.handleBack.bind(this);
         this.state = {
             redirectBack: false,
+            redirectVideo:false
         }
 
     }
@@ -36,14 +40,26 @@ class GalleryTwo extends Component{
 
     }
 
-
+    onIdle(){
+        this.setState({redirectVideo: true})
+    }
 
     render() {
         if(this.state.redirectBack){
             return (<Redirect to={'/galleryQuestions'}/>)
         }
+        else if (this.state.redirectVideo){
+            return (<Redirect to={'/video'}/>)
+        }
         return(
             <svg width={1920} height={1080} viewBox="0 0 1920 1080">
+                <IdleTimer
+                    ref={ref => { this.idleTimer = ref }}
+                    onIdle={this.onIdle}
+                    debounce={250}
+                    timeout={10000}
+
+                />
                 <defs>
                     <style>
                         {

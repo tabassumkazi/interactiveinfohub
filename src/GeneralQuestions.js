@@ -8,6 +8,7 @@
 import React from "react";
 import { Component } from 'react';
 import {Redirect} from 'react-router-dom';
+import IdleTimer from "react-idle-timer"
 
 // xlinkHref="https://s3.amazonaws.com/appforest_uf/f1556501170357x344824048630522050/6809725-simple-vintage-backgrounds.jpg"
 //http://pngriver.com/wp-content/uploads/2018/04/Download-Back-Logo-Png-Image-58922-For-Designing-Projects.png
@@ -18,12 +19,15 @@ class GeneralQuestions extends Component{
 
     constructor(props){
         super(props);
+        this.idleTimer = null;
+        this.onIdle = this.onIdle.bind(this);
         this.handleBack = this.handleBack.bind(this);
         this.handleAnswer = this.handleAnswer.bind(this);
 
         this.state = {
             redirectBack: false,
-            redirectAnswer: false
+            redirectAnswer: false,
+            redirectVideo:false
         }
 
     }
@@ -40,7 +44,9 @@ class GeneralQuestions extends Component{
         this.setState({redirectAnswer: true})
     }
 
-
+    onIdle(){
+        this.setState({redirectVideo: true})
+    }
 
     render() {
         if (this.state.redirectBack) {
@@ -49,9 +55,18 @@ class GeneralQuestions extends Component{
         else if(this.state.redirectAnswer){
             return (<Redirect to={'/generalAnswer'}/>)
         }
-
+        else if (this.state.redirectVideo){
+            return (<Redirect to={'/video'}/>)
+        }
         return(
             <svg width={1920} height={1080} viewBox="0 0 1920 1080">
+                <IdleTimer
+                    ref={ref => { this.idleTimer = ref }}
+                    onIdle={this.onIdle}
+                    debounce={250}
+                    timeout={10000}
+
+                />
                 <defs>
                     <style>
                         {
